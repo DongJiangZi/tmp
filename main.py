@@ -18,7 +18,7 @@ from zero_shot_classification import zero_shot_classification
 tflogging.set_verbosity_error()
 
 csv_path = "ptbxl_database.csv"
-data_dir = "records500"
+data_dir = "."
 
 categories = ["NORM", "MI", "STTC", "CD", "HYP"]
 
@@ -48,8 +48,8 @@ if __name__ == "__main__":
                                 metrics_dict=None,
                                 train_dataloader=train_dataloader,
                                 val_dataloader=val_dataloader,
-                                epochs=10,
-                                patience=0.05,
+                                epochs=50,
+                                patience=5,
                                 monitor="val_loss",
                                 mode="min")
     logging.info("\n" + train_dfhistory.to_string())
